@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2818024140	Play_Stage_1			\Default Work Unit\Play_Stage_1	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	735957701	Stage_1	C:\Users\peter\projects\QuestWwiseTest\QuestWwiseTest_WwiseProject\.cache\Android\SFX\Stage_1_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Stage_1\Stage_1		21168064
+

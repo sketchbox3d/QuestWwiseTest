@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{D00B6093-898E-4C09-AB5B-3C6BEDB60AE0}" SchemaVersion="94">
+	<InteractiveMusic>
+		<WorkUnit Name="Default Work Unit" ID="{D00B6093-898E-4C09-AB5B-3C6BEDB60AE0}" PersistMode="Standalone">
+			<ChildrenList>
+				<MusicSegment Name="Stage_1" ID="{E4E40835-ED6F-4629-B5F6-3DA7143A7E80}" ShortID="461516962">
+					<PropertyList>
+						<Property Name="EndPosition" Type="Real64" Value="120000"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FCE6D2B8-AD6C-466A-AF42-10AD75086017}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5EC18D57-87C7-4BB0-9F75-4DDCC83201DF}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicTrack Name="Stage_1" ID="{A7E8BFB4-5CF5-4679-82E0-0CE4C6D3867E}" ShortID="1065905478">
+							<ReferenceList>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5EC18D57-87C7-4BB0-9F75-4DDCC83201DF}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Stage_1" ID="{C2294DF1-542F-4966-856F-C971E377A360}" ShortID="735957701">
+									<Language>SFX</Language>
+									<AudioFile>Stage_1.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{A1BD5ACD-0CC6-4887-B82C-70DAEAB83DEE}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<SequenceList>
+								<MusicTrackSequence Name="" ID="{DCB07B30-79B4-4183-A131-FB08FC86666E}">
+									<ClipList>
+										<MusicClip Name="Stage_1" ID="{C46C9833-0B50-4350-81BF-E22798B09222}">
+											<PropertyList>
+												<Property Name="EndTrimOffset" Type="Real64" Value="120000"/>
+												<Property Name="FadeInMode" Type="int16" Value="0"/>
+												<Property Name="FadeOutMode" Type="int16" Value="0"/>
+											</PropertyList>
+											<AudioSourceRef Name="Stage_1" ID="{C2294DF1-542F-4966-856F-C971E377A360}"/>
+										</MusicClip>
+									</ClipList>
+								</MusicTrackSequence>
+							</SequenceList>
+						</MusicTrack>
+					</ChildrenList>
+					<CueList>
+						<MusicCue Name="Entry Cue" ID="{556C4122-4D55-4A45-AA8E-DA39D01AC5D4}"/>
+						<MusicCue Name="Exit Cue" ID="{397F6EFB-9345-4CB5-8E23-B12A7778DF9F}">
+							<PropertyList>
+								<Property Name="CueType" Type="int16" Value="1"/>
+								<Property Name="TimeMs" Type="Real64" Value="120000"/>
+							</PropertyList>
+						</MusicCue>
+					</CueList>
+				</MusicSegment>
+			</ChildrenList>
+		</WorkUnit>
+	</InteractiveMusic>
+</WwiseDocument>

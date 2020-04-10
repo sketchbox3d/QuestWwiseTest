@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="11" SoundbankVersion="134">
+	<RootPaths>
+		<ProjectRoot>C:\Users\peter\projects\QuestWwiseTest\QuestWwiseTest_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\peter\projects\QuestWwiseTest\QuestWwiseTest_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\peter\projects\QuestWwiseTest\QuestWwiseTest_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Users\peter\projects\QuestWwiseTest\QuestWwiseTest_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="1675065207" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\DefaultSoundbank</ObjectPath>
+			<ShortName>DefaultSoundbank</ShortName>
+			<Path>DefaultSoundbank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2818024140" Name="Play_Stage_1" ObjectPath="\Events\Default Work Unit\Play_Stage_1" DurationType="OneShot" DurationMin="120.000000" DurationMax="120.000000"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="735957701" Language="SFX">
+					<ShortName>Stage_1.wav</ShortName>
+					<Path>SFX\Stage_1_D79FB2B7.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
