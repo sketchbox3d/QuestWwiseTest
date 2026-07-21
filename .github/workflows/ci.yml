@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  hygiene:
+    name: Repository hygiene
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+
+      - name: Validate project manifests and assembly definitions
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, sys
+
+          # Vendored trees are excluded: third-party files are not ours to fix, and
+          # some are not strict JSON (ASP.NET bundleconfig.json allows comments).
+          VENDOR = ("third party", "thirdparty", "/plugins/", "/oculus/", "/wwise/",
+                    "asset store", "gleyplugins", "/library/", "/temp/", "/obj/")
+
+          def vendored(path):
+              s = "/" + str(path).lower()
+              return any(v in s for v in VENDOR)
+
+          targets = set()
+          for pattern in ("**/*.asmdef", "**/*.asmref", "**/package.json",
+                          "**/*.uproject", "**/*.uplugin",
+                          "Packages/manifest.json", "Packages/packages-lock.json"):
+              for path in pathlib.Path(".").glob(pattern):
+                  if ".git" in path.parts or vendored(path):
+                      continue
+                  targets.add(path)
+
+          bad = []
+          for path in sorted(targets):
+              try:
+                  json.loads(path.read_text(encoding="utf-8-sig"))
+              except Exception as exc:
+                  bad.append("%s: %s" % (path, exc))
+
+          if bad:
+              print("Invalid JSON:")
+              for b in bad:
+                  print("  " + b)
+              sys.exit(1)
+          print("%d manifest and assembly definition files parse." % len(targets))
+          PY
+
+      - name: Check assembly definition names are unique
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, collections, sys
+          names = collections.defaultdict(list)
+          for path in pathlib.Path(".").rglob("*.asmdef"):
+              if ".git" in path.parts:
+                  continue
+              name = json.loads(path.read_text(encoding="utf-8-sig")).get("name")
+              names[name].append(str(path))
+          dupes = {n: p for n, p in names.items() if len(p) > 1}
+          if dupes:
+              print("Duplicate assembly names:")
+              for n, p in dupes.items():
+                  print("  %s: %s" % (n, ", ".join(p)))
+              sys.exit(1)
+          print("%d assembly definitions, all uniquely named." % len(names))
+          PY
+
+      - name: Secret scan
+        run: python3 .github/scripts/secret_audit.py

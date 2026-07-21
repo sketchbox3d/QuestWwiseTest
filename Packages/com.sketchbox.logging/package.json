@@ -1,0 +1,14 @@
+{
+  "name": "com.sketchbox.logging",
+  "displayName": "Sketchbox Logging",
+  "version": "1.0.0",
+  "unity": "2018.3",
+  "description": "Logging facade and global exception handler. Call sites use Sketchbox.Logging.Log instead of UnityEngine.Debug so severity filtering and output routing are configured in one place.",
+  "keywords": [
+    "logging",
+    "diagnostics"
+  ],
+  "author": {
+    "name": "Sketchbox3D"
+  }
+}
